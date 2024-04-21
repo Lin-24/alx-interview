@@ -2,7 +2,7 @@
 
 const request = require('request');
 
-const filmNum = process.argv[2] + '/';
+const filmNum = parseInt(process.argv[2]) + '/';
 const filmURL = 'https://swapi-api.hbtn.io/api/films/';
 
 // Makes an API request to get film information
@@ -19,8 +19,8 @@ request(filmURL + filmNum, async function (err, res, body) {
       request(charURL, function (err, res, body) {
         if (err) return console.error(err);
 
-          console.log(JSON.parse(body).name);
-        resolve();
+	      console.log(JSON.parse(body).name);
+	      resolve();
       });
     });
   }
